@@ -16,7 +16,7 @@ public class MovieDAOImpl implements MovieDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Movie findById(int movieId) {
 		return em.find(Movie.class, movieId);
@@ -32,20 +32,43 @@ public class MovieDAOImpl implements MovieDAO {
 
 	@Override
 	public Movie createMovie(Movie movie) {
-		// TODO Auto-generated method stub
-		return null;
+		if (movie.getTitle() != null) {
+			em.persist(movie);
+			return movie;
+		} else {
+			return null;
+		}
+
 	}
 
 	@Override
 	public Movie updateMovie(int movieId, Movie movie) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Movie fixMovie = em.find(Movie.class, movieId);
+		if (fixMovie != null) {
+
+			fixMovie.setTitle(movie.getTitle());
+			fixMovie.setDescription(movie.getDescription());
+			fixMovie.setReleaseYear(movie.getReleaseYear());
+			fixMovie.setImageUrl(movie.getImageUrl());
+			fixMovie.setLength(movie.getLength());
+
+		}
+		return fixMovie;
 	}
 
 	@Override
 	public boolean deleteMovie(int movieId) {
-		// TODO Auto-generated method stub
-		return false;
+
+		Movie movieToDelete = em.find(Movie.class, movieId);
+		boolean deleted = false;
+
+		if (movieToDelete != null) {
+			em.remove(movieToDelete);
+			deleted = !em.contains(movieToDelete);
+
+		}
+		return deleted;
 	}
 
 }

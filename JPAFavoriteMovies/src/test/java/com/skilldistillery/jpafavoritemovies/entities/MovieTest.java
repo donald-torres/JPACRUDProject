@@ -40,14 +40,12 @@ class MovieTest {
 		movie = null;
 	}
 
-	
 	@Test
 	void test_Movie_basic_mappings() {
 		assertNotNull(movie);
 		assertEquals("Princess Mononoke", movie.getTitle());
-//		assertEquals(1993, movie.getReleaseYear());
-//		assertEquals(0.99, movie.getRentalRate());
-//		assertEquals(20.99, movie.getReplacementCost());
+		assertEquals(1997, movie.getReleaseYear());
+		assertEquals(133, movie.getLength());
 	}
 
 }

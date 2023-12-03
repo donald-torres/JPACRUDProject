@@ -16,12 +16,13 @@ public class Movie {
 	private String title;
 	private String description;
 	@Column(name = "release_year")
-	private int releaseYear;
+	private Integer releaseYear;
 	@Column(name = "image_url")
 	private String imageUrl;
-	private int length;
-	
-	public Movie() 	{}
+	private Integer length;
+
+	public Movie() {
+	}
 
 	public int getId() {
 		return id;
@@ -47,11 +48,11 @@ public class Movie {
 		this.description = description;
 	}
 
-	public int getReleaseYear() {
+	public Integer getReleaseYear() {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(int releaseYear) {
+	public void setReleaseYear(Integer releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
@@ -63,11 +64,11 @@ public class Movie {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getLength() {
+	public Integer getLength() {
 		return length;
 	}
 
-	public void setLength(int length) {
+	public void setLength(Integer length) {
 		this.length = length;
 	}
 
@@ -95,7 +96,5 @@ public class Movie {
 		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
 				+ ", imageUrl=" + imageUrl + ", length=" + length + "]";
 	}
-	
-	
-	
+
 }

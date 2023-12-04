@@ -38,13 +38,13 @@
 				
 				<label for="length">Length: </label><input type="text" name="length" value="${movie.length}"><br>
 				
-				<button type="submit">Update ${movie.title}</button>
+				<button type="submit" class="btn btn-success">Update ${movie.title}</button>
 			
 			</form>
 			
 			<form action="deleteMovie.do" method="GET">
 				<input type="hidden" name="movieId" value=${movie.id} >
-				<button type="submit">Delete ${movie.title}</button>
+				<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete ${movie.title}</button>
 			</form>
 		</c:when>
 		<c:otherwise>
